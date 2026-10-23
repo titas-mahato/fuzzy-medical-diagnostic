@@ -20,7 +20,5 @@ ENV/
 .ipynb_checkpoints/
 
 # Course viva notes, study guides, and personal exam prep
-docs/viva_notes.md
-docs/*_notes.md
-docs/cheat_sheet.md
+docs/
 features.md
