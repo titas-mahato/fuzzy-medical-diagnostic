@@ -2,11 +2,11 @@
 
 An academic-grade, modular Clinical Decision Support System (CDSS) for cardiovascular and metabolic risk stratification, integrating Intelligent Agent Architectures, Heuristic State-Space Search, Multi-Layer Perceptrons trained via Backpropagation, Mamdani/Sugeno Fuzzy Inference Systems, and Evolutionary/Swarm Metaheuristic Optimization.
 
-Developed for **CSE315: Artificial Intelligence and Soft Computing (AISC)**.
+Engineered for automated clinical risk stratification and diagnostic test sequencing under physiological uncertainty and sensor noise.
 
 ---
 
-## 🌟 Key Architecture & Capabilities
+## Key Architecture & Capabilities
 
 ```mermaid
 graph TD
@@ -52,7 +52,7 @@ graph TD
 
 ---
 
-## 💻 Tech Stack
+## Tech Stack
 - **Language:** Python 3.10+
 - **Numerical Computing & Scientific Libraries:** NumPy, SciPy, Pandas, Scikit-learn
 - **Data Visualization:** Matplotlib (Agg backend)
@@ -61,19 +61,15 @@ graph TD
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```text
 fuzzy-medical-diagnostic/
-├── .gitignore                          # Excludes bytecode, envs, and docs/ viva notes
+├── .gitignore                          # Excludes bytecode, local environments, and local notes
 ├── README.md                           # Professional project documentation
 ├── requirements.txt                    # Pinned lightweight dependencies
-├── features.md                         # Detailed Syllabus-to-Code mapping matrix
 ├── data/
 │   └── heart.csv                       # Standalone UCI Heart Disease dataset (303 records)
-├── docs/
-│   ├── AI & Computing Course Structure.pdf # Syllabus reference document
-│   └── viva_notes.md                   # Complete viva preparation and mathematical derivations
 ├── src/
 │   ├── __init__.py
 │   ├── agents/
@@ -104,7 +100,7 @@ fuzzy-medical-diagnostic/
 
 ---
 
-## 🚀 Installation & Setup
+## Installation & Setup
 
 ### 1. Clone or Open Project
 Navigate to the project root directory:
@@ -128,7 +124,7 @@ pip install -r requirements.txt
 
 ---
 
-## 🧪 Running Automated Unit Tests
+## Running Automated Unit Tests
 To execute the comprehensive test suite across all 5 modules:
 ```bash
 python -m unittest discover -s tests -v
@@ -137,7 +133,7 @@ All 14 tests run deterministically in under 1 second without network access.
 
 ---
 
-## 🖥️ Launching the Interactive Streamlit Web UI
+## Launching the Interactive Streamlit Web UI
 To start the multi-tab interactive clinical dashboard:
 ```bash
 streamlit run app/app.py
@@ -161,10 +157,3 @@ Open your browser at `http://localhost:8501`.
 4. **Tab 4: Evolutionary & Swarm Convergence**
    - Genetic Algorithm execution for biomarker panel selection with generational fitness curves.
    - Particle Swarm Optimization execution for tuning membership inflection points with RMSE loss curves.
-
----
-
-## 📖 Syllabus Mapping & Viva Reference
-For university evaluation:
-- See `features.md` for a 1-to-1 matrix mapping every syllabus topic to its code implementation.
-- Detailed theoretical derivations (Backpropagation, Centroid integration, A\* admissibility proofs, and 35 viva Q&As) are organized in `docs/viva_notes.md`.
