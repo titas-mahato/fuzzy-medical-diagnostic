@@ -1,5 +1,5 @@
 """
-Module 1: AI & Soft Computing Foundations
+Intelligent Clinical Decision Support Agents (PEAS, Goal & Utility Based)
 """
 
 from .diagnostic_agent import (

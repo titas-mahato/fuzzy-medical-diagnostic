@@ -22,3 +22,5 @@ ENV/
 # Course viva notes, study guides, and personal exam prep
 docs/
 features.md
+
+extra/

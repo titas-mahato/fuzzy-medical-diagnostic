@@ -1,5 +1,5 @@
 """
-Module 3: Artificial Neural Networks
+Feedforward Neural Networks and Supervised Backpropagation
 """
 
 from .mlp_classifier import MLPClassifier, train_mlp_on_dataset

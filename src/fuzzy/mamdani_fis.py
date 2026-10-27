@@ -2,7 +2,6 @@
 Mamdani Fuzzy Inference System (FIS) from scratch.
 Implements Linguistic Variables, AHA-guided clinical rule base,
 Min-Max Mamdani inference, and Centroid Defuzzification.
-Course: CSE315 - Module 4: Fuzzy Logic
 """
 
 from typing import Dict, List, Tuple, Any
@@ -257,6 +256,7 @@ class MamdaniFIS:
         z_universe = self.output.universe
         aggregated_curve = np.zeros_like(z_universe)
         rule_activations = []
+        term_activations = {t: 0.0 for t in self.output.terms}
 
         for rule in self.rules:
             firing_strength = rule.evaluate_antecedent(fuzzified)
@@ -270,6 +270,10 @@ class MamdaniFIS:
 
                 # Aggregation: Max operator
                 aggregated_curve = np.maximum(aggregated_curve, clipped_mu)
+
+                term_activations[rule.consequent_term] = max(
+                    term_activations[rule.consequent_term], float(firing_strength)
+                )
 
                 rule_activations.append({
                     "rule": str(rule),
@@ -317,6 +321,7 @@ class MamdaniFIS:
             "defuzz_method": defuzz_method,
             "fuzzified_inputs": fuzzified,
             "rule_activations": sorted(rule_activations, key=lambda x: x["strength"], reverse=True),
+            "term_activations": term_activations,
             "z_universe": z_universe,
             "aggregated_curve": aggregated_curve,
         }

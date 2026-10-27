@@ -2,7 +2,6 @@
 Informed A* Search and Clinical Pathway Optimization.
 Models clinical diagnostic test sequencing as a state space graph search
 balancing financial cost, patient discomfort, and diagnostic uncertainty reduction.
-Course: CSE315 - Module 2: Problem Solving by Intelligent Search
 """
 
 from typing import Dict, List, Set, Tuple, Any, Optional

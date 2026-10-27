@@ -1,5 +1,5 @@
 """
-Module 4: Fuzzy Logic Inference Systems (Mamdani & Sugeno)
+Fuzzy Logic Inference Systems (Mamdani & Sugeno)
 """
 
 from .membership import TriangularMF, TrapezoidalMF, GaussianMF

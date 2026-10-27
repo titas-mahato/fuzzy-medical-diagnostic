@@ -1,7 +1,6 @@
 """
 Goal-Based and Utility-Based Intelligent Clinical Agents.
 Implements the PEAS Framework and Soft vs. Hard Computing Comparative Benchmark.
-Course: CSE315 - Module 1: Introduction to AI and Soft Computing
 """
 
 from typing import Dict, List, Tuple, Any, Optional
@@ -68,7 +67,7 @@ class AgentAction:
 
 class GoalBasedDiagnosticAgent:
     """
-    Goal-Based Agent (Module 1):
+    Goal-Based Clinical Agent:
     Acts to achieve an explicit clinical goal:
     Goal = { Diagnostic Certainty >= (1 - tau) AND Patient Safety Preserved }.
     """
@@ -101,7 +100,7 @@ class GoalBasedDiagnosticAgent:
 
 class UtilityBasedDiagnosticAgent:
     """
-    Utility-Based Agent (Module 1):
+    Utility-Based Clinical Agent:
     Maximizes expected multi-attribute clinical utility:
         U(Action) = w_acc * Certainty - w_cost * (Cost / MaxCost) - w_inv * (Invasiveness / MaxInv) - w_risk * MissedRiskPenalty
     Balances diagnostic precision against patient discomfort and financial burden.

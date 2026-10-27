@@ -1,6 +1,5 @@
 """
 Sugeno Fuzzy Inference System (Takagi-Sugeno-Kang) & ANFIS Architecture.
-Course: CSE315 - Module 4: Fuzzy Logic
 """
 
 from typing import Dict, List, Any

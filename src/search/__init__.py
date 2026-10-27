@@ -1,5 +1,5 @@
 """
-Module 2: Problem Solving by Intelligent Search
+Informed Diagnostic Pathway Search (A*, Greedy, Hill Climbing)
 """
 
 from .astar_pathway import ClinicalTest, SearchNode, ClinicalPathwaySearch

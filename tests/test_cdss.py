@@ -1,11 +1,10 @@
 """
 Unit and Integration Test Suite for CDSS.
-Validates all 5 course syllabus modules:
-- Module 1: Diagnostic Agents (PEAS, Goal & Utility, Soft vs Hard)
-- Module 2: Intelligent Search (A*, Greedy, Hill Climbing, Admissibility)
-- Module 3: Artificial Neural Networks (MLP Backpropagation, Delta Rule, Metrics)
-- Module 4: Fuzzy Logic (Membership, Mamdani FIS, Centroid Defuzzification, Sugeno FIS)
-- Module 5: Evolutionary & Swarm Optimization (GA Feature Selection, PSO Tuning)
+Validates all core system components:
+- Diagnostic Agents (PEAS, Goal & Utility, Soft vs Hard)
+- Intelligent Search (A*, Greedy, Hill Climbing, Admissibility)
+- Artificial Neural Networks (MLP Backpropagation, Delta Rule, Metrics)
+- Fuzzy Logic (Membership, Mamdani FIS, Centroid Defuzzification, Sugeno FIS)
 """
 
 import os
@@ -24,12 +23,10 @@ from src.agents.diagnostic_agent import (
     UtilityBasedDiagnosticAgent,
     SoftVsHardComputingBenchmark,
 )
-from src.optimization.genetic_selector import GeneticFeatureSelector
-from src.optimization.pso_tuner import ParticleSwarmTuner
 
 
-class TestModule1AgentsAndSoftComputing(unittest.TestCase):
-    """Module 1: AI & Soft Computing Foundations Tests."""
+class TestAgentsAndSoftComputing(unittest.TestCase):
+    """AI & Soft Computing Foundations Tests."""
 
     def test_peas_specification(self):
         peas = PEASSpecification()
@@ -70,8 +67,8 @@ class TestModule1AgentsAndSoftComputing(unittest.TestCase):
         self.assertGreater(benchmark["soft_risk_mean"], 0.0)
 
 
-class TestModule2IntelligentSearch(unittest.TestCase):
-    """Module 2: Problem Solving by Intelligent Search Tests."""
+class TestIntelligentSearch(unittest.TestCase):
+    """Problem Solving by Intelligent Search Tests."""
 
     def setUp(self):
         self.searcher = ClinicalPathwaySearch(discomfort_weight=10.0, max_budget_dollars=2000.0)
@@ -100,8 +97,8 @@ class TestModule2IntelligentSearch(unittest.TestCase):
         self.assertTrue(any("Hill" in name for name in alg_names))
 
 
-class TestModule3NeuralNetworks(unittest.TestCase):
-    """Module 3: Artificial Neural Networks Tests."""
+class TestNeuralNetworks(unittest.TestCase):
+    """Artificial Neural Networks Tests."""
 
     def test_mlp_forward_and_backward(self):
         mlp = MLPClassifier(input_dim=5, hidden_dims=(8, 4), learning_rate=0.05)
@@ -128,8 +125,8 @@ class TestModule3NeuralNetworks(unittest.TestCase):
         self.assertGreater(metrics["roc_auc"], 0.60)
 
 
-class TestModule4FuzzyLogic(unittest.TestCase):
-    """Module 4: Fuzzy Logic Inference Systems Tests."""
+class TestFuzzyLogic(unittest.TestCase):
+    """Fuzzy Logic Inference Systems Tests."""
 
     def test_membership_functions(self):
         tri = TriangularMF("Normal", 10, 20, 30)
@@ -175,27 +172,6 @@ class TestModule4FuzzyLogic(unittest.TestCase):
         breakdown = SugenoFIS.anfis_architecture_breakdown()
         self.assertIn("Layer 1 (Fuzzification Nodes)", breakdown)
         self.assertIn("membership grades", breakdown["Layer 1 (Fuzzification Nodes)"])
-
-
-class TestModule5Optimization(unittest.TestCase):
-    """Module 5: Evolutionary Algorithms & Swarm Intelligence Tests."""
-
-    def test_genetic_algorithm_feature_selector(self):
-        df = pd.read_csv("D:/Zenith/Projects/fuzzy-medical-diagnostic/data/heart.csv")
-        feats = ["age", "trestbps", "chol", "thalach", "oldpeak"]
-        ga = GeneticFeatureSelector(population_size=8, generations=3, random_state=42)
-        res = ga.fit(df[feats].values, df["target"].values, feats)
-        self.assertTrue(res["selected_count"] > 0)
-        self.assertGreater(res["best_cv_accuracy"], 0.50)
-        self.assertEqual(len(res["history"]), 3)
-
-    def test_pso_tuner(self):
-        df = pd.read_csv("D:/Zenith/Projects/fuzzy-medical-diagnostic/data/heart.csv")
-        pso = ParticleSwarmTuner(num_particles=4, max_iterations=2, random_state=42)
-        res = pso.fit(df, sample_size=15)
-        self.assertIn("tuned_rmse", res)
-        self.assertIn("tuned_parameters", res)
-        self.assertEqual(len(res["convergence_curve"]), 2)
 
 
 if __name__ == "__main__":

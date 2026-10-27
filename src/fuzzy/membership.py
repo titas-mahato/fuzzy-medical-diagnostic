@@ -1,7 +1,6 @@
 """
 Membership Functions for Fuzzy Inference Systems.
 Implements Triangular, Trapezoidal, and Gaussian membership curves.
-Course: CSE315 - Module 4: Fuzzy Logic
 """
 
 import numpy as np

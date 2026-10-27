@@ -1,7 +1,6 @@
 """
 3-Layer Feedforward Multi-Layer Perceptron (MLP) Classifier from scratch.
 Trained via Supervised Backpropagation and the Generalized Delta Learning Rule.
-Course: CSE315 - Module 3: Artificial Neural Networks
 """
 
 from typing import Dict, List, Tuple, Any, Optional
